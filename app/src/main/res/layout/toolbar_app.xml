@@ -13,21 +13,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="playlist"
+            android:text="@string/playlist"
             android:textColor="@color/red"
-            android:textSize="20sp" />
+            android:textSize="@dimen/t_s" />
 
         <TextView
             android:id="@+id/tvBack"
-            android:drawablePadding="-8dp"
+            android:drawablePadding="@dimen/dss"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:paddingHorizontal="12dp"
-            android:text="   Back"
+            android:paddingHorizontal="@dimen/tv"
             android:textColor="@color/red"
-            app:drawableStartCompat="@drawable/ic_back" />
+            app:drawableStartCompat="@drawable/back" />
     </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>

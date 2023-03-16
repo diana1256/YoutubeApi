@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.playlists.ItemPlaylistsActivity">
+    tools:context=".ui.playlists.detail.ItemPlaylistsActivity">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -27,8 +27,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/grey"
                 android:fitsSystemWindows="true"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
+                app:expandedTitleMarginEnd="@dimen/eng"
+                app:expandedTitleMarginStart="@dimen/se"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <LinearLayout
@@ -43,14 +43,15 @@
                         layout="@layout/toolbar_app"/>
 
                     <TextView
+
                         android:id="@+id/tvTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginHorizontal="@dimen/hod"
+                        android:layout_marginTop="@dimen/top"
+                        android:layout_marginBottom="@dimen/bot"
                         android:textColor="@color/black"
-                        android:textSize="24sp"
+                        android:textSize="@dimen/ts"
                         android:textStyle="bold" />
 
                     <TextView
@@ -61,7 +62,7 @@
                         android:layout_marginBottom="16dp"
                         android:gravity="center_vertical"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/td" />
 
                 </LinearLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -69,11 +70,11 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="56dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            app:cornerRadius="200dp"
-            android:contentDescription="fab_button"
+            android:layout_width="@dimen/wh"
+            android:layout_height="@dimen/w"
+            android:layout_margin="@dimen/card"
+            app:cornerRadius="@dimen/p"
+            android:contentDescription="@string/fab_button"
             android:background="@drawable/play_button"
             app:layout_anchor="@id/main.appbar"
             app:layout_anchorGravity="bottom|right|end" />
@@ -85,6 +86,18 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:indeterminateTint="@color/red"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

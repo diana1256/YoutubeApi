@@ -1,4 +1,4 @@
-package com.example.youtubeapi.model
+package com.example.youtubeapi.data.local.entity.remote.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -11,7 +11,7 @@ data class Playlists(@SerializedName("kind")
                      @SerializedName("etag")
                      val etag: String = "",
                      @SerializedName("items")
-                     val items: List<ItemsItem>?)
+                     val items: List<ItemsItem>)
 
 data class Snippet(@SerializedName("publishedAt")
                    val publishedAt: String = "",
@@ -44,7 +44,8 @@ data class Thumbnails(@SerializedName("standard")
                       @SerializedName("maxres")
                       val maxres: Maxres,
                       @SerializedName("medium")
-                      val medium: Medium)
+                      val medium: Medium
+)
 
 data class PageInfo(@SerializedName("totalResults")
                     val totalResults: Int = 0,
@@ -79,7 +80,8 @@ data class ItemsItem(@SerializedName("snippet")
                      @SerializedName("id")
                      val id: String = "",
                      @SerializedName("contentDetails")
-                     val contentDetails: ContentDetails):java.io.Serializable
+                     val contentDetails: ContentDetails
+):java.io.Serializable
 
 data class High(@SerializedName("width")
                 val width: Int = 0,
