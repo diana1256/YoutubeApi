@@ -1,9 +1,7 @@
 package com.example.youtubeapi.repository
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.youtubeapi.App
 import com.example.youtubeapi.BuildConfig
 import com.example.youtubeapi.core.network.RetrofitClient
 import com.example.youtubeapi.core.network.result.Resource

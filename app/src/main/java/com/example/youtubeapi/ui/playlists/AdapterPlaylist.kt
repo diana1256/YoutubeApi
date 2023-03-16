@@ -8,7 +8,7 @@ import com.example.youtubeapi.core.network.result.Resource
 import com.example.youtubeapi.databinding.ItemPlaylistBinding
 import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.data.local.entity.remote.model.Playlists
-import com.example.youtubeapi.utils.loadImage
+import com.example.youtubeapi.core.network.ext.loadImage
 
 class AdapterPlaylist(private val playlists: Resource<Playlists>,private val onClick:(ItemsItem)->Unit):RecyclerView.Adapter<AdapterPlaylist.ViewHolder>() {
 

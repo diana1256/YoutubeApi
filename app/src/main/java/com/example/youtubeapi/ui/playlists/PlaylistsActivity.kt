@@ -2,24 +2,22 @@ package com.example.youtubeapi.ui.playlists
 
 import android.content.Intent
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import com.example.youtubeapi.R
 import com.example.youtubeapi.core.network.result.Status
 import com.example.youtubeapi.core.network.ui.BaseActivity
-import com.example.youtubeapi.data.local.entity.remote.model.InfoPlaylists
 import com.example.youtubeapi.databinding.PlaylistsMainBinding
 import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.ui.playlists.detail.ItemPlaylistsActivity
 import com.example.youtubeapi.util.Connectivity
-import com.example.youtubeapi.utils.isNetworkConnected
-import com.example.youtubeapi.utils.showToast
+import com.example.youtubeapi.core.network.ext.isNetworkConnected
+import com.example.youtubeapi.core.network.ext.showToast
 
 class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistsMainBinding>() {
 
     private lateinit var adapterPlaylist : AdapterPlaylist
-    private var playlistData = listOf<ItemsItem>()
     private val registerForActivity =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {}
 
@@ -54,7 +52,7 @@ class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistsMainBinding>
 
     override fun initListener() {
         binding.noInternet.btnTryAgain.setOnClickListener{
-            Toast.makeText(this, "No connection!!", Toast.LENGTH_SHORT).show()
+            showToast(getString(R.string.no_internet))
         }
     }
 
@@ -73,7 +71,7 @@ class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistsMainBinding>
 
                     binding.noInternet.btnTryAgain.setOnClickListener {
                         if (!isNetworkConnected()) {
-                            showToast("No Internet")
+                            showToast(getString(R.string.no_internet))
                         } else {
                             binding.noInternet.root.isVisible = false
                         }

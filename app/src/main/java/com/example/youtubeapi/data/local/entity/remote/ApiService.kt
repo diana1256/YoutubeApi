@@ -1,10 +1,7 @@
 package com.example.youtubeapi.data.local.entity.remote
 
-import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.data.local.entity.remote.model.Playlists
-import com.example.youtubeapi.data.local.entity.remote.model.Snippet
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 

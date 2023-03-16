@@ -6,4 +6,5 @@
     <string name="back">    Back</string>
     <string name="playlist">playlist</string>
     <string name="fab_button">fab_button</string>
+    <string name="no_internet">No Internet</string>
 </resources>

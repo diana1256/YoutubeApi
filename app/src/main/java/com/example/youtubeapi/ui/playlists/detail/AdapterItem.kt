@@ -7,13 +7,13 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.databinding.ItemPlaylistBinding
-import com.example.youtubeapi.utils.loadImage
+import com.example.youtubeapi.core.network.ext.loadImage
 
-class AdapterItem():RecyclerView.Adapter<AdapterItem.ViewHolder>() {
+class AdapterItem:RecyclerView.Adapter<AdapterItem.ViewHolder>() {
 
    private val itemsItem = arrayListOf<ItemsItem>()
 
-    inner class ViewHolder(val binding: ItemPlaylistBinding):RecyclerView. ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemPlaylistBinding):RecyclerView. ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun onBind(item:ItemsItem) {
             binding.tvTitle.text = item.snippet.title
