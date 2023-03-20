@@ -1,26 +1,33 @@
 package com.example.youtubeapi.data.local.entity.remote
 
+import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.data.local.entity.remote.model.Playlists
-import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
 
     @GET("playlists")
-    fun getPlaylists(
+   suspend fun getPlaylists(
         @Query("part") apiKey:String,
         @Query("channelId") channelId:String,
         @Query("key") key:String,
-        @Query("maxResults") maxResults : Int = 20
-    ):Call<Playlists>
+        @Query("maxResults") maxResults : Int = 30
+    ):Response<Playlists>
 
     @GET("playlistItems")
-    fun getPlaylistItems(
+   suspend fun getPlaylistItems(
         @Query("key") key : String,
         @Query("part") part : String,
         @Query("playlistId") channelId : String,
         @Query("maxResults") maxResults : Int = 20
-    ) : Call<Playlists>
+    ) : Response<Playlists>
 
+    @GET("videos")
+    suspend fun getVideo(
+        @Query("key") key : String,
+        @Query("part") part : String,
+        @Query("id") id : String,
+    ) : Response<ItemsItem>
 }

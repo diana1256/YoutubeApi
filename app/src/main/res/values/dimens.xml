@@ -31,4 +31,20 @@
     <dimen name="j">276dp</dimen>
     <dimen name="uu">32dp</dimen>
     <dimen name="oo">32dp</dimen>
+    <dimen name="tv_o">0sp</dimen>
+    <dimen name="radio_top">22dp</dimen>
+    <dimen name="radio">50dp</dimen>
+    <dimen name="tv_text">25sp</dimen>
+    <dimen name="material_btn">255dp</dimen>
+    <dimen name="h_material_btn">45dp</dimen>
+    <dimen name="t_material_btn">216dp</dimen>
+    <dimen name="app_bar">300dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="df">40dp</dimen>
+    <dimen name="rf">30dp</dimen>
+    <dimen name="tyu">110dp</dimen>
+    <dimen name="po">15dp</dimen>
+    <dimen name="jk">10dp</dimen>
+    <dimen name="lo">180dp</dimen>
+    <dimen name="pi">140dp</dimen>
 </resources>

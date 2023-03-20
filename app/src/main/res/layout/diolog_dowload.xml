@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:cardCornerRadius="@dimen/gg"
+       app:layout_constraintTop_toTopOf="parent">
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/td"
+           android:textColor="@color/black"
+           android:textStyle="bold"
+           android:text="@string/select_video_quality"
+           android:textSize="@dimen/tv_text"
+           android:layout_marginStart="@dimen/td"/>
+
+       <RadioGroup
+           android:id="@+id/radio_group"
+           android:layout_marginTop="@dimen/radio"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+       <RadioButton
+           android:id="@+id/radio_one"
+           android:layout_marginStart="@dimen/card"
+           android:layout_marginTop="@dimen/td"
+           android:layout_width="match_parent"
+           android:text="@string/one_p"
+           android:buttonTint="@color/red"
+           android:paddingStart="@dimen/xx"
+           android:textColor="@color/black"
+           android:layout_height="wrap_content"
+           tools:ignore="RtlSymmetry" />
+
+           <RadioButton
+               android:id="@+id/radio_two"
+               android:text="@string/two_p"
+               android:layout_marginStart="@dimen/card"
+               android:layout_marginTop="@dimen/radio_top"
+               android:buttonTint="@color/red"
+               android:paddingStart="@dimen/xx"
+               android:textColor="@color/black"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               tools:ignore="RtlSymmetry" />
+
+           <RadioButton
+               android:id="@+id/radio_thee"
+               android:layout_marginStart="@dimen/radio_top"
+               android:layout_marginTop="@dimen/card"
+               android:text="@string/_free_p"
+               android:paddingStart="@dimen/xx"
+               android:buttonTint="@color/red"
+               android:textColor="@color/black"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               tools:ignore="RtlSymmetry" />
+       </RadioGroup>
+       
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/btn_down"
+           android:layout_width="@dimen/material_btn"
+           android:layout_height="@dimen/h_material_btn"
+           android:backgroundTint="@color/red"
+           android:text="@string/download"
+           android:textAllCaps="false"
+           android:layout_marginTop="@dimen/t_material_btn"
+           android:layout_marginStart="@dimen/td"
+           android:layout_marginEnd="@dimen/td"/>
+   </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

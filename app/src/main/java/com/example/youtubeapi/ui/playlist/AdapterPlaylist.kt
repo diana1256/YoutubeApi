@@ -1,4 +1,4 @@
-package com.example.youtubeapi.ui.playlists
+package com.example.youtubeapi.ui.playlist
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,16 +10,16 @@ import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.data.local.entity.remote.model.Playlists
 import com.example.youtubeapi.core.network.ext.loadImage
 
-class AdapterPlaylist(private val playlists: Resource<Playlists>,private val onClick:(ItemsItem)->Unit):RecyclerView.Adapter<AdapterPlaylist.ViewHolder>() {
+class AdapterPlaylist(private val playlists: Resource<Playlists>,private val onClick:(String,ItemsItem)->Unit):RecyclerView.Adapter<AdapterPlaylist.ViewHolder>() {
 
-    inner class ViewHolder(val binding: ItemPlaylistBinding):RecyclerView. ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemPlaylistBinding):RecyclerView. ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun onBind(item: ItemsItem) {
             binding.tvTitle.text = item.snippet.title
             binding.tvDesk.text = item.contentDetails.itemCount.toString()+ " video series"
             binding.ivItem.loadImage(item.snippet.thumbnails.default.url)
             itemView.setOnClickListener {
-                onClick(item)
+                onClick(binding.tvTitle.text.toString(),item)
             }
         }
     }

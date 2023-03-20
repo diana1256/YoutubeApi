@@ -1,4 +1,4 @@
-package com.example.youtubeapi.ui.playlists
+package com.example.youtubeapi.ui.playlist
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeapi.R
 import com.example.youtubeapi.core.network.result.Status
 import com.example.youtubeapi.core.network.ui.BaseActivity
-import com.example.youtubeapi.databinding.PlaylistsMainBinding
 import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
-import com.example.youtubeapi.ui.playlists.detail.ItemPlaylistsActivity
+import com.example.youtubeapi.ui.item.ItemPlaylistsActivity
 import com.example.youtubeapi.util.Connectivity
 import com.example.youtubeapi.core.network.ext.isNetworkConnected
 import com.example.youtubeapi.core.network.ext.showToast
+import com.example.youtubeapi.databinding.PlaylistsMainBinding
 
 class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistsMainBinding>() {
 
@@ -56,9 +56,11 @@ class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistsMainBinding>
         }
     }
 
-    private fun itemClick(itemsItem: ItemsItem) {
+    private fun itemClick(title:String,item: ItemsItem) {
         val i = Intent(this, ItemPlaylistsActivity::class.java)
-            i.putExtra(DATA,itemsItem.id)
+        i.putExtra(TITLE,title)
+        i.putExtra(DATA,item.id)
+        i.putExtra("image",item.snippet.thumbnails.high.url)
             registerForActivity.launch(i)
         }
 
@@ -84,5 +86,6 @@ class PlaylistsActivity : BaseActivity<PlaylistsViewModel, PlaylistsMainBinding>
 
     companion object{
         const val DATA = "data"
-    }
+        const val TITLE = "title"
+     }
 }

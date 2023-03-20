@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.playlists.detail.ItemPlaylistsActivity">
+    tools:context=".ui.item.ItemPlaylistsActivity">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -40,42 +40,51 @@
                         android:id="@+id/container_toolbar"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_scrollFlags="scroll|snap"
-                        layout="@layout/toolbar_app"/>
+                        layout="@layout/toolbar_app"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/tyu"
+                        android:layout_marginTop="@dimen/po"
+                        app:cardCornerRadius="@dimen/jk">
+
+                        <ImageView
+                            android:id="@+id/iv_image"
+                            android:scaleType="centerCrop"
+                            android:layout_width="@dimen/lo"
+                            android:layout_height="@dimen/pi"
+                            app:layout_anchor="@+id/main.appbar"
+                            app:layout_anchorGravity="center" />
+
+                    </androidx.cardview.widget.CardView>
                     <TextView
-
                         android:id="@+id/tvTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/hod"
                         android:layout_marginTop="@dimen/top"
                         android:layout_marginBottom="@dimen/bot"
+                        android:layout_marginStart="@dimen/rf"
                         android:textColor="@color/black"
                         android:textSize="@dimen/ts"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/td" />
 
                 </LinearLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="@dimen/wh"
             android:layout_height="@dimen/w"
             android:layout_margin="@dimen/card"
             app:cornerRadius="@dimen/p"
             android:contentDescription="@string/fab_button"
-            android:background="@drawable/play_button"
+            android:src="@drawable/play_button"
+            app:maxImageSize="@dimen/wh"
             app:layout_anchor="@id/main.appbar"
             app:layout_anchorGravity="bottom|right|end" />
 
@@ -85,6 +94,7 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

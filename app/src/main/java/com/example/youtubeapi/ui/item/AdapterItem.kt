@@ -1,4 +1,4 @@
-package com.example.youtubeapi.ui.playlists.detail
+package com.example.youtubeapi.ui.item
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.databinding.ItemPlaylistBinding
 import com.example.youtubeapi.core.network.ext.loadImage
 
-class AdapterItem:RecyclerView.Adapter<AdapterItem.ViewHolder>() {
+class AdapterItem(private val onClick:(ItemsItem)->Unit):RecyclerView.Adapter<AdapterItem.ViewHolder>() {
 
    private val itemsItem = arrayListOf<ItemsItem>()
 
@@ -20,6 +20,9 @@ class AdapterItem:RecyclerView.Adapter<AdapterItem.ViewHolder>() {
             binding.tvDesk.text = item.snippet.publishedAt
             binding.ivItem.loadImage(item.snippet.thumbnails.default.url)
             binding.constBar.isVisible = false
+            itemView.setOnClickListener {
+                onClick(item)
+            }
         }
     }
 
