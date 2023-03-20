@@ -66,7 +66,8 @@ class VideosActivity : BaseActivity<VideosViewModel,ActivityVideosBinding>() {
             builder.setView(view)
             val dialog = builder.create()
             dialog.show()
-
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.setCancelable(true)
             val btn = view.findViewById<MaterialButton>(R.id.btn_down)
             btn.setOnClickListener {
                 dialog.dismiss()

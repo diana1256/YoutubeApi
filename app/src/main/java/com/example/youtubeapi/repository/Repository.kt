@@ -22,7 +22,7 @@ class Repository {
   fun getItemList(playlistId: String) = liveData(Dispatchers.IO){
         emit(Resource.loading())
        val response = remoteDataSource.getPlaylistItem(playlistId)
-          emit(response)
+        emit(response)
       }
     fun getVideo(videoId:String): LiveData<Resource<ItemsItem>> = liveData(Dispatchers.IO) {
         emit(Resource.loading())
