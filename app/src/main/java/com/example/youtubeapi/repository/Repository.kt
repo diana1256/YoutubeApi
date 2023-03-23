@@ -8,11 +8,8 @@ import com.example.youtubeapi.data.local.entity.remote.RemoteDataSource
 import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import kotlinx.coroutines.Dispatchers
 
-class Repository {
+class Repository(private val remoteDataSource: RemoteDataSource) {
 
-   private val remoteDataSource : RemoteDataSource by lazy {
-       RemoteDataSource()
-   }
     fun getPlaylists() = liveData(Dispatchers.IO) {
             emit(Resource.loading())
           val response = remoteDataSource.getPlaylist()

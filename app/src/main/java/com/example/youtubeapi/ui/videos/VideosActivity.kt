@@ -1,11 +1,9 @@
 package com.example.youtubeapi.ui.videos
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.util.Log
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeapi.R
 import com.example.youtubeapi.core.network.ext.showToast
 import com.example.youtubeapi.core.network.result.Status
@@ -13,26 +11,23 @@ import com.example.youtubeapi.core.network.ui.BaseActivity
 import com.example.youtubeapi.databinding.ActivityVideosBinding
 import com.example.youtubeapi.ui.item.ItemPlaylistsActivity
 import com.example.youtubeapi.ui.playlist.PlaylistsActivity
-import com.google.android.exoplayer2.ExoPlayer
-import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.*
 import com.google.android.material.button.MaterialButton
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class VideosActivity : BaseActivity<VideosViewModel,ActivityVideosBinding>() {
 
-    override val viewModel: VideosViewModel by lazy {
-        ViewModelProvider(this)[VideosViewModel::class.java]
-    }
-
+    override val viewModel: VideosViewModel by viewModel()
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityVideosBinding {
         return ActivityVideosBinding.inflate(layoutInflater)
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun initViewModel() {
         super.initView()
         viewModel.loading.observe(this){
             binding.progressCircular.isVisible = it
-
         }
 
         binding.containerToolbar.tvBack.setOnClickListener {
@@ -46,8 +41,7 @@ class VideosActivity : BaseActivity<VideosViewModel,ActivityVideosBinding>() {
                     binding.tvTitle.text = intent.getStringExtra(ItemPlaylistsActivity.KEY)
                     binding.tvDescription.text = intent.getStringExtra(ItemPlaylistsActivity.DESC)
                     viewModel.loading.postValue(false)
-                }
-                Status.ERROR -> {
+                }Status.ERROR -> {
                     viewModel.loading.postValue(true)
                     showToast(it.message.toString())
                 }
@@ -79,10 +73,12 @@ class VideosActivity : BaseActivity<VideosViewModel,ActivityVideosBinding>() {
         val player = ExoPlayer.Builder(this).build()
         val mediaItem = MediaItem.fromUri(URI)
         player.setMediaItem(mediaItem)
-        binding.playerView.player = player
+        binding.exoPlayer.player = player
     }
+
+
     companion object{
-        const val URI ="https://i.imgur.com/7bMqysJ.mp4"
+        const val URI ="https://ia800208.us.archive.org/4/items/Popeye_forPresident/Popeye_forPresident_512kb.mp4"
     }
 }
 

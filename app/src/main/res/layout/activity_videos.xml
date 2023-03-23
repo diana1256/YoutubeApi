@@ -49,27 +49,18 @@
 
 
                     <com.google.android.exoplayer2.ui.StyledPlayerView
-                        android:id="@+id/playerView"
+                        android:id="@+id/exo_player"
                         android:layout_width="@dimen/zero"
                         android:layout_height="@dimen/zero"
-                        app:show_subtitle_button="true"
-                        argType:fastforward_increment="15000"
-                        argType:resize_mode="fixed_width"
-                        argType:rewind_increment="15000"
-                        argType:show_buffering="when_playing"
-                        argType:show_fastforward_button="true"
-                        argType:show_next_button="false"
-                        argType:show_previous_button="false"
-                        argType:show_rewind_button="true"
-                        argType:show_subtitle_button="true"
-                        argType:use_artwork="true"
-                        argType:use_controller="true"
-                        argType:use_sensor_rotation="true"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/container_toolbar">
+                        app:layout_constraintTop_toBottomOf="@id/container_toolbar"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:show_subtitle_button="true">
                     </com.google.android.exoplayer2.ui.StyledPlayerView>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -79,6 +70,7 @@
 
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nv_con"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -88,11 +80,12 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:fontFamily="@font/fjallaone_regular"
                     android:id="@+id/tvTitle"
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/bot"
-                    android:layout_marginTop="@dimen/bot"
+                    android:layout_marginTop="40dp"
                     android:maxLines="2"
                     android:textAllCaps="true"
                     android:textColor="@color/black"
@@ -107,9 +100,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/df"
                     android:layout_marginTop="@dimen/bot"
-                    android:paddingHorizontal="@dimen/tv"
                     android:background="@drawable/btn_download"
                     android:drawablePadding="@dimen/tv"
+                    android:paddingHorizontal="@dimen/tv"
                     android:textAllCaps="false"
                     app:layout_constraintStart_toStartOf="@id/tvTitle"
                     app:layout_constraintTop_toBottomOf="@id/tvTitle" />
@@ -119,6 +112,7 @@
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/bot"
+                    android:fontFamily="@font/notosans_bold"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

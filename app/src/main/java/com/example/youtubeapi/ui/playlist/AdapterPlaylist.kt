@@ -10,7 +10,8 @@ import com.example.youtubeapi.data.local.entity.remote.model.ItemsItem
 import com.example.youtubeapi.data.local.entity.remote.model.Playlists
 import com.example.youtubeapi.core.network.ext.loadImage
 
-class AdapterPlaylist(private val playlists: Resource<Playlists>,private val onClick:(String,ItemsItem)->Unit):RecyclerView.Adapter<AdapterPlaylist.ViewHolder>() {
+class AdapterPlaylist(private val playlists: Resource<Playlists>,private val onClick:(String,ItemsItem)->Unit):
+    RecyclerView.Adapter<AdapterPlaylist.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemPlaylistBinding):RecyclerView. ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
@@ -24,7 +25,7 @@ class AdapterPlaylist(private val playlists: Resource<Playlists>,private val onC
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       return ViewHolder(ItemPlaylistBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return ViewHolder(ItemPlaylistBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int = playlists.data?.items?.size!!

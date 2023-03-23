@@ -36,6 +36,7 @@ android {
     buildFeatures{
         viewBinding = true
     }
+    viewBinding { enabled = true }
 }
 
 dependencies {
@@ -70,4 +71,12 @@ dependencies {
 
     //YoutubeExtractor
     implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
+
+    //KoinDI
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-androidx-scope:$koin_version"
+    implementation "io.insert-koin:koin-androidx-viewmodel:$koin_version"
+
+    //DelegateAdapter
+    implementation "io.github.d00mch:delegateadapter:4.2"
 }
